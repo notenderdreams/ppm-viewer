@@ -1,5 +1,5 @@
-use std::env;
 use ppm_viewer::app::App;
+use std::env;
 
 fn main() -> Result<(), eframe::Error> {
     let args: Vec<String> = env::args().collect();
