@@ -22,7 +22,7 @@ impl App {
         match load_ppm(&self.path) {
             Ok((color_image, size)) => {
                 let tex =
-                    ctx.load_texture("ppm-Image", color_image, egui::TextureOptions::default());
+                    ctx.load_texture(&self.path, color_image, egui::TextureOptions::default());
 
                 self.texture = Some(tex);
                 self.image_size = Some(egui::Vec2::new(size.0 as f32, size.1 as f32));

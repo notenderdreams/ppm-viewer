@@ -10,10 +10,10 @@ fn main() -> Result<(), eframe::Error> {
     }
 
     let options = eframe::NativeOptions::default();
-
+    let path = args[1].clone();
     eframe::run_native(
-        "ppmv",
+        &path.clone(),
         options,
-        Box::new(move |_cc| Ok(Box::new(App::new(args[1].clone())))),
+        Box::new(move |_cc| Ok(Box::new(App::new(path.clone())))),
     )
 }
