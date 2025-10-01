@@ -1,6 +1,6 @@
 # PPMV
 A simple and lightweight PPM (Portable Pixmap) image viewer built with Rust and egui.
-Currently supports only P3 .ppm files (UTF-8).
+Currently supports only P3 .ppm files.
 
 
 ![Demo Image](example/demo.png "ppmv")
@@ -13,11 +13,7 @@ Step -1:
     <br>
  Step-2:
     <br>
-    `cd ppm-viewer`
-    <br>
-Step-3:
-    <br>
-    `cargo install --path .`
+    `cargo install --path ppm-viewer`
 
 
 ## Usage
