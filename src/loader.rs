@@ -1,9 +1,14 @@
 use std::fs;
 use eframe::egui;
 
+use crate::encoding::Encoding;
+
+
 pub fn load_ppm(path: &str) -> Result<(egui::ColorImage, (usize, usize)), String> {
-    let file = fs::read_to_string(path)
-        .map_err(|e| format!("Failed to read {}: {}", path, e))?;
+    let bytes = fs::read(path).map_err(|e| format!("Failed to read {}: {}", path, e))?;
+
+    let encoding = Encoding::detect_encoding(&bytes);
+    let file = Encoding::decode_bytes(&bytes, encoding)?;
 
     let mut lines = file.lines().filter(|l| !l.starts_with('#'));
 
